@@ -13,4 +13,6 @@
 (setq custom-file
       (expand-file-name "~/.emacs.d/custom.el"))
 
+(load custom-file)
+(load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/options.el")
