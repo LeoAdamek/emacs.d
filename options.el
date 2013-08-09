@@ -20,15 +20,7 @@
 ;; The fact that this isn#t default behaviour is sinful.
 ;; CURSE YOU STALLMAN!
 ;; Code from emacswiki/BackupsDirectory
-(setq
- backup-by-copying t ; don't clobber symlinks.
- backup-directory-alist '((".*" . ,temporary-file-directory)) ; stop littering
- delete-old-versions t
- kept-new-versions 6
- kept-old-versions 2
- version-control t
- auto-save-file-name-transforms '((".*" ,temporary-file-directory t))
- )
-
-
- 
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
