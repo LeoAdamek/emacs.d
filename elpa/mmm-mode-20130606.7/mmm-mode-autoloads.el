@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (nxml-web-mode html-erb-mode) "mmm-erb" "mmm-erb.el"
-;;;;;;  (20982 4451 431298 855000))
+;;;;;;  (20997 12428 12547 85000))
 ;;; Generated autoloads from mmm-erb.el
 
 (autoload 'html-erb-mode "mmm-erb" "\
@@ -19,8 +19,8 @@
 
 ;;;***
 
-;;;### (autoloads (mmm-add-classes) "mmm-vars" "mmm-vars.el" (20982
-;;;;;;  4451 517966 855000))
+;;;### (autoloads (mmm-add-classes) "mmm-vars" "mmm-vars.el" (20997
+;;;;;;  12428 95881 659000))
 ;;; Generated autoloads from mmm-vars.el
 
 (autoload 'mmm-add-classes "mmm-vars" "\
@@ -34,7 +34,7 @@ Add the submode classes CLASSES to `mmm-classes-alist'.
 ;;;;;;  "mmm-compat.el" "mmm-cweb.el" "mmm-mason.el" "mmm-mode-pkg.el"
 ;;;;;;  "mmm-mode.el" "mmm-myghty.el" "mmm-noweb.el" "mmm-region.el"
 ;;;;;;  "mmm-rpm.el" "mmm-sample.el" "mmm-univ.el" "mmm-utils.el")
-;;;;;;  (20982 4451 543396 69000))
+;;;;;;  (20997 12428 128050 304000))
 
 ;;;***
 
