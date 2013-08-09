@@ -24,3 +24,8 @@
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
+
+
+;; Load Theme
+;; Change to taste.
+(load-theme 'wombat)

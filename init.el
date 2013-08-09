@@ -19,4 +19,3 @@
 (load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/options.el")
 
-(load-theme 'tango-dark)
