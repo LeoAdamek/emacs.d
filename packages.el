@@ -5,6 +5,7 @@
     php-mode
     mmm-mode
     nxml
+    ecb
     )
 )
 
