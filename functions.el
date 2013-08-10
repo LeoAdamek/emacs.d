@@ -32,3 +32,14 @@
 	  (kill-buffer buffer)))
       (message "Killed %i dired buffer(s)." count))))
 
+
+;;
+;; Bookmark Functions
+;;
+
+(defun bookmark-to-abbrevs ()
+  "Create Abbrevs based on the `bookmark-alist'."
+  (dolist (bookmark bookmark-alist)
+    (lst* ((name (car bookmark))
+	   (file (bookmark-get-filename name)))
+	  (define-abbrev global-abbrev-table name file))))

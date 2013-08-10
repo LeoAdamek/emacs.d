@@ -15,6 +15,9 @@
 ;; Disable the default splash screen
 (setq inhibit-splash-screen t)
 
+;; Turn ON ido-mode
+(ido-mode 1)
+
 ;; Put all backups in the same place.
 ;; Avoid polluting repositories.
 ;; The fact that this isn#t default behaviour is sinful.
@@ -25,6 +28,8 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+;; Put the bookmarks in ~/.emacs.d/bookmarks
+(setq boomark-default-file "~/.emacs.d/bookmarks")
 
 ;; Load Theme
 ;; Change to taste.
