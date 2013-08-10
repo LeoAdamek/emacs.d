@@ -8,8 +8,6 @@
 ;; This file is licensed under GPLv2
 ;;
 
-(load-theme 'tango-dark)
-
 ;; Set which files are needed to be loaded.
 ;; Put the file where "customize-*" options are put.
 (setq custom-file
