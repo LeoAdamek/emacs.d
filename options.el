@@ -31,6 +31,12 @@
 ;; Put the bookmarks in ~/.emacs.d/bookmarks
 (setq boomark-default-file "~/.emacs.d/bookmarks")
 
+;;
+;; If ECB is installed, bind C-e C-e to open it.
+;;
+(eval-after-load "ecb.el" '(global-set-key [(control ?e) (?p)]))
+
+
 ;; Load Theme
 ;; Change to taste.
 (load-theme 'wombat)
