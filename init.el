@@ -19,3 +19,7 @@
 (load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/options.el")
 
+;;
+;; Hook into a change in mode and load the appropreate file if the correct 
+;; after-change-major-mode-hook
+;; TBD
