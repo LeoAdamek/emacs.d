@@ -16,6 +16,7 @@
 (load custom-file)
 (load "~/.emacs.d/packages.el")
 (load "~/.emacs.d/options.el")
+(load "~/.emacs.d/functions.el")
 
 ;;
 ;; Hook into a change in mode and load the appropreate file if the correct 
