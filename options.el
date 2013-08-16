@@ -31,6 +31,20 @@
 ;; Put the bookmarks in ~/.emacs.d/bookmarks
 (setq boomark-default-file "~/.emacs.d/bookmarks")
 
+;; Answer Yes/No prompts with Y/N instead of yes/no
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Use Paren-mode -- It highlights matching parenthesies
+;;                   When the cursor is over one
+(require 'paren)
+(show-paren-mode t)
+
+;; Truncate long lines. equivelent to `nowrap` in Vi
+(setq-default truncate-lines t)
+
+;; Use soft-tabs by default (spaces inserted when tab pressed)
+(setq-default indent-tabs-mode nil)
+
 ;;
 ;; If ECB is installed, bind C-e C-e to open it.
 ;;
