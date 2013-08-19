@@ -50,6 +50,8 @@
 ;;
 (eval-after-load "ecb.el" '(global-set-key [(control ?e) (?p)]))
 
+;; Edit PHP with `web-mode'
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
 ;; Load Theme
 ;; Change to taste.
