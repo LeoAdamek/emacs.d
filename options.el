@@ -53,6 +53,15 @@
 ;; Edit PHP with `web-mode'
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
-;; Load Theme
-;; Change to taste.
-(load-theme 'wombat)
+;; Try to load `color-theme-sanityinc-tomorrow'
+;; If that's not installed, load `wombat'
+(if (package-installed-p 'color-theme-sanityinc-tomorrow)
+    (color-theme-sanityinc-tomorrow-night)
+  (load-theme 'wombat))
+
+;; Enable Semantic Mode
+(semantic-mode t)
+
+;; Change how duplicate filenames are handled.
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
