@@ -1,0 +1,69 @@
+;; Object leo/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "leo/"
+  :tables (list 
+    (semanticdb-table "*scratch-2*"
+    :major-mode 'c-mode
+    :tags 
+        '( ("stdio.h" include (:system-flag t) nil [1 19])
+            ("stdlib.h" include (:system-flag t) nil [20 39])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable
+                       (:pointer 1
+                        :constant-flag t
+                        :type "int")
+                        (reparse-symbol arg-sub-list) [50 66])
+                    ("argv" variable
+                       (:pointer 2
+                        :constant-flag t
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [67 85]))                  
+                :type "int")
+                nil [41 213])
+            ("Node" type
+               (:members 
+                  ( ("data" variable
+                       (:pointer 1
+                        :type "void")
+                        (reparse-symbol classsubparts) [234 245])
+                    ("next" variable
+                       (:pointer 1
+                        :type ("Node" type
+                             (:prototype t
+                              :type "struct")
+                              nil nil))
+                        (reparse-symbol classsubparts) [251 269]))                  
+                :type "struct")
+                nil [215 277])
+            ("Node" variable (:type ("Node" type
+                 (:prototype t
+                  :type "struct")
+                  nil nil)) nil [215 277])
+            ("Queue" type
+               (:members 
+                  ( ("front" variable
+                       (:pointer 1
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [299 311])
+                    ("back" variable
+                       (:pointer 1
+                        :type ("Node" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [317 328]))                  
+                :type "struct")
+                nil [279 337])
+            ("Queue" variable (:type ("Queue" type
+                 (:prototype t
+                  :type "struct")
+                  nil nil)) nil [279 337]))          
+    :file "*scratch-2*"
+    :pointmax 338
+    :fsize 124
+    :lastmodtime '(21086 28766 755527 408000)
+    :unmatched-syntax '((punctuation 239 . 240) (VOID 235 . 239) (punctuation 239 . 240) (VOID 235 . 239) (symbol 222 . 223) (STRUCT 215 . 221) (STRUCT 215 . 221) (STRUCT 215 . 221))
+    )
+   )
+  :file "!home!leo!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )

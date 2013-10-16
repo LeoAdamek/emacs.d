@@ -1,0 +1,18 @@
+;; Object js/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "js/"
+  :tables (list 
+   (semanticdb-table "validate-uncompressed.js"
+    :major-mode 'js-mode
+    :tags nil
+    :file "validate-uncompressed.js"
+    :pointmax 5136
+    :fsize 5135
+    :lastmodtime '(21083 61533 401687 893000)
+    :unmatched-syntax '((VARIABLE 5013 . 5021) (VARIABLE 5044 . 5050) (PAREN_BLOCK 5059 . 5134) (VAR 524 . 527) (PAREN_BLOCK 554 . 5010) (PAREN_BLOCK 186 . 348) (VARIABLE 5023 . 5031) (VARIABLE 5054 . 5060) (PAREN_BLOCK 5069 . 5144) (VAR 524 . 527) (PAREN_BLOCK 554 . 5020) (PAREN_BLOCK 186 . 348) (VARIABLE 5022 . 5030) (VARIABLE 5053 . 5059) (PAREN_BLOCK 5068 . 5143) (VAR 524 . 527) (PAREN_BLOCK 554 . 5019) (PAREN_BLOCK 186 . 348))
+    )
+   )
+  :file "!home!leo!development!source!joomla-cms!media!system!js!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )
