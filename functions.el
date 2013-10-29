@@ -44,23 +44,6 @@
 	   (file (bookmark-get-filename name)))
 	  (define-abbrev global-abbrev-table name file))))
 
-(define-key ido-file-dir-completion-map [(meta control ?b)] 'ido-goto-bookmark)
-(defun ido-goto-bookmark (bookmark)
-  (let enable-recursive-minibuffers t)
-  (interactive
-   (list (bookmark-completing-read "Jump to bookmark" bookmark-current-bookmark)))
-  (unless bookmark
-    (error "No Bookmark Specified"))
-  (let ((filename (bookmark-get-filename bookmark)))
-    (ido-set-current-directory
-     (if (file-directory-p filename)
-	 filename
-       (file-name-directory filename)))
-    (setq ido-exit 'refresh
-	  ido-text-init ido-text
-	  ido-rotate-temp t)
-    (exit-minibuffer)))
-
 
 ;; I need this, dont kill me.
 (defun bf-pretty-print-xml-region (begin end)

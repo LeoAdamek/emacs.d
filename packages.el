@@ -5,7 +5,8 @@
     php-mode
     mmm-mode
     nxml
-    ecb
+    helm
+    yasnippet
     )
 )
 
@@ -14,7 +15,7 @@
 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages") t)
+	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 (package-initialize)
 

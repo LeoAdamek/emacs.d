@@ -16,7 +16,8 @@
 (setq inhibit-splash-screen t)
 
 ;; Turn ON ido-mode
-(ido-mode 1)
+;; NOTE: I've disabled this to try and use HELM
+;;(ido-mode 1)
 
 ;; Put all backups in the same place.
 ;; Avoid polluting repositories.
@@ -63,5 +64,12 @@
 (semantic-mode t)
 
 ;; Change how duplicate filenames are handled.
+;; Change it to filename|parent-directory-until-unique
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
+
+(if (package-installed-p 'helm)
+    (helm-mode t))
+
+(if (package-installed-p 'yasnippit)
+    (yas-global-mode))
