@@ -68,8 +68,16 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
 
+
 (if (package-installed-p 'helm)
     (helm-mode t))
 
-(if (package-installed-p 'yasnippit)
-    (yas-global-mode))
+(if (package-installed-p 'yasnippet)
+    (yas-global-mode t))
+
+
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"))
+
+
+        
