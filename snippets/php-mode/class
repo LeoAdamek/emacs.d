@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: PHP Class Header
+# key: class
+# --
+/**
+ * $1 Class
+ *
+ * $1 Class Documentation
+ *
+ * @package $2
+ * @author Leo Adamek
+ */
+class $1 {
+
+}
+      
+ 
