@@ -55,10 +55,9 @@
 
 ;; Try to load `color-theme-sanityinc-tomorrow'
 ;; If that's not installed, load `wombat' - defaultest dark theme.
-(if (package-installed-p 'color-theme-sanityinc-tomorrow)
-    (load-theme 'sanityinc-tomorrow-bright)
+(if (package-installed-p 'moe-theme)
+    (load-theme 'moe-dark)
 (load-theme 'wombat))
-;;(load-theme 'hemisu-dark)
 
 
 ;; Enable Semantic Mode

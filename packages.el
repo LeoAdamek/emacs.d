@@ -6,7 +6,7 @@
     nxml
     helm
     yasnippet
-    color-theme-sanityinc-tomorrow
+    moe-theme
     )
 )
 
