@@ -50,7 +50,8 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Edit PHP with `web-mode'
-(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+;; `web-mode' isn't really that great :(
+;; (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
 ;; Try to load `color-theme-sanityinc-tomorrow'
 ;; If that's not installed, load `wombat' - defaultest dark theme.

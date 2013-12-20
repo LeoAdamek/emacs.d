@@ -1,7 +1,6 @@
 (require 'package)
 (defvar package-list
   '(
-    web-mode
     php-mode
     mmm-mode
     nxml
