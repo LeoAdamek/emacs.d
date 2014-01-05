@@ -54,10 +54,9 @@
 ;; Edit PHP with `web-mode'
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
-;; Try to load `color-theme-sanityinc-tomorrow'
 ;; If that's not installed, load `wombat'
-(if (package-installed-p 'color-theme-sanityinc-tomorrow)
-    (color-theme-sanityinc-tomorrow-night)
+(if (package-installed-p 'moe-theme)
+    (load-theme 'moe-dark)
   (load-theme 'wombat))
 
 ;; Enable Semantic Mode
@@ -78,6 +77,3 @@
 
 (setq yas-snippet-dirs
       '("~/.emacs.d/snippets"))
-
-
-        

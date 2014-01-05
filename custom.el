@@ -4,13 +4,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
- '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+ '(custom-safe-themes (quote ("1d333677969fc54176ee4fd37e9c92f9b26b02a02345102733c27c31a957252a" "2283e0e235d6f00b717ccd7b1f22aa29ce042f0f845936a221012566a810773d" "a03f473311cb7f849a3b389bb71a7e7485018f1cb2e361947b36327e1a6e5c06" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
  '(ecb-options-version "2.40")
  '(ecb-source-path (quote (("/" "/") ("/home/leo/development/source/travelzen" "travelzen"))))
  '(fci-rule-color "#282a2e")
  '(haskell-font-lock-symbols t)
+ '(haskell-indent-spaces 4)
  '(haskell-mode-hook (quote (imenu-add-menubar-index turn-on-eldoc-mode turn-on-haskell-decl-scan turn-on-haskell-doc turn-on-haskell-indent)))
  '(haskell-stylish-on-save t)
  '(haskell-tags-on-save t)
@@ -22,4 +22,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#1d1f21" :foreground "#c5c8c6" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 80 :width normal :foundry "xos4" :family "Terminus")))))
+ '(default ((t (:height 80 :family "Terminus")))))
