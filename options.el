@@ -21,13 +21,16 @@
 
 ;; Put all backups in the same place.
 ;; Avoid polluting repositories.
-;; The fact that this isn#t default behaviour is sinful.
+;; The fact that this isn't default behaviour is sinful.
 ;; CURSE YOU STALLMAN!
 ;; Code from emacswiki/BackupsDirectory
+(defconst emacs-tmp-dir (format "%s/emacs/%s" temporary-file-directory (user-uid)))
+
 (setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
+      `((".*" . ,emacs-tmp-dir)))
 (setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+      `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix emacs-tmp-dir)
 
 ;; Put the bookmarks in ~/.emacs.d/bookmarks
 (setq boomark-default-file "~/.emacs.d/bookmarks")
@@ -46,13 +49,9 @@
 ;; Use soft-tabs by default (spaces inserted when tab pressed)
 (setq-default indent-tabs-mode nil)
 
-;;
-;; If ECB is installed, bind C-e C-e to open it.
-;;
-(eval-after-load "ecb.el" '(global-set-key [(control ?e) (?p)]))
-
 ;; Edit PHP with `web-mode'
-(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+;; `web-mode' isn't really that great :(
+;; (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
 ;; If that's not installed, load `wombat'
 (if (package-installed-p 'moe-theme)
@@ -68,12 +67,14 @@
 (setq uniquify-buffer-name-style 'post-forward)
 
 
+;; Load HELM
 (if (package-installed-p 'helm)
     (helm-mode t))
 
+;; Load YASnippet
 (if (package-installed-p 'yasnippet)
     (yas-global-mode t))
 
-
+;; Load some Snippets
 (setq yas-snippet-dirs
       '("~/.emacs.d/snippets"))

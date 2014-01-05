@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Joomla Database Query
+# key: dbo
+# contributor: LeoAdamek
+# --
+\$db = JFactory::getDbo();
+\$q  = \$db->getQuery(true);
+
+\$q->select(${1:"*"})
+   ->from("#__$2")

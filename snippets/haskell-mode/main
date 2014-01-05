@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Haskell Main
+# key: main
+# contributor: Leo Adamek
+# --
+main :: IO ()
+main = 
