@@ -1,13 +1,16 @@
 ;;
-;; File: options.el`
+;; File: `options.el`
 ;;
 ;; Sets various options for emacs
 ;;
 ;; This file is licensed under GPLv2
 ;;
 
-;; The Font
-(set-default-font "Terminus 8")
+;; Set some colours & fonts
+;; Black background, black fringe, grey text
+(custom-set-faces
+ '(default ((t (:background "black" :foreground "grey" :family "Terminus" :height 80) )) )
+ '(fringe  ((t (:background "black") )) ) )
 
 ;; Turn off GUI elements
 ;; Pretty self explainitory.
@@ -29,24 +32,19 @@
 (set-fringe-mode
  (/ (- (frame-pixel-width)
        (* 200 (frame-char-width)))
-    4))
+    8))
 
-;; Set some colours
-;; Black background, black fringe, grey text
-(custom-set-faces
- '(default ((t (:background "black" :foreground "grey") )) )
- '(fringe  ((t (:background "black") )) ) )
 
 ;; Turn off the mode line Ö :shocking:
 (defvar-local hidden-mode-line-mode nil)
 (define-minor-mode hidden-mode-line-mode
   "Minor mode to hide the mode-line in the current buffer."
   :init-value nil
-  :global nil
+  :global t
   :variable hidden-mode-line-mode
   :group 'editing-basics
   (if hidden-mode-line-mode
-      (setq hide-mode-line-mode mode-line-format
+      (setq hide-mode-line mode-line-format
             mode-line-format nil)
     (setq mode-line-format hide-mode-line
           hide-mode-line nil))
@@ -57,15 +55,18 @@
      (concat "Hidden mode line enabled. "
              "Use M-x hidden-mode-line-mode RET to return it.") )))
 
-;; Have a mode-line in C-S-SPC in the header
-;; ATTENTION: You do need to deactivate hidden-mode-line-mode.
+;; And turn it on!
+(hidden-mode-line-mode 1)
+
+
+;; Have a mode-line in C-s-c in the header
 (defun mode-line-in-header ()
   (interactive)
   (if (not header-line-format)
       (setq header-line-format mode-line-format)
     (setq header-line-format nil))
   (force-mode-line-update))
- (global-set-key (kbd "C-s") 'mode-line-in-header)
+ (global-set-key (kbd "C-s-c") 'mode-line-in-header)
 
 ;; Put all backups in the same place.
 ;; Avoid polluting repositories.
@@ -97,10 +98,7 @@
 ;; Use soft-tabs by default (spaces inserted when tab pressed)
 (setq-default indent-tabs-mode nil)
 
-;; Edit PHP with `web-mode'
-;; `web-mode' isn't really that great :(
-;; (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
-
+;; Default theme is `moe-dark', from package `moe-theme'
 ;; If that's not installed, load `wombat'
 (if (package-installed-p 'moe-theme)
     (load-theme 'moe-dark)
@@ -126,3 +124,19 @@
 ;; Load some Snippets
 (setq yas-snippet-dirs
       '("~/.emacs.d/snippets"))
+
+;; Load Keyfreq if its installed
+(if (package-installed-p 'keyfreq)
+    (message "Loading Keyfreq")
+  (message "You should install keyfreq"))
+
+
+;; Set up some useful `auto-mode-alist' mappings
+
+;; Ruby files which don't end in .rb (Gemfile, Guardfile, config.ru)
+(add-to-list 'auto-mode-alist '("Gemfile\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("config.ru\\'" . ruby-mode))
+
+;; Default is for *.html.php to use html-mode, FAIL!
+(add-to-list 'auto-mode-alist '("\\.html\\.php\\'" . php-mode))

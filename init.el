@@ -22,3 +22,4 @@
 ;; Hook into a change in mode and load the appropreate file if the correct 
 ;; after-change-major-mode-hook
 ;; TBD
+(put 'downcase-region 'disabled nil)
