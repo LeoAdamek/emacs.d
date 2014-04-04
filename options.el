@@ -9,7 +9,7 @@
 ;; Set some colours & fonts
 ;; Black background, black fringe, grey text
 (custom-set-faces
- '(default ((t (:background "black" :foreground "grey" :family "Terminus" :height 80) )) )
+ '(default ((t (:background "black" :foreground "white" :family "ProggyTiny" :height 80) )) )
  '(fringe  ((t (:background "black") )) ) )
 
 ;; Turn off GUI elements
@@ -56,7 +56,7 @@
              "Use M-x hidden-mode-line-mode RET to return it.") )))
 
 ;; And turn it on!
-(hidden-mode-line-mode 1)
+(hidden-mode-line-mode t)
 
 
 ;; Have a mode-line in C-s-c in the header
@@ -127,8 +127,8 @@
 
 ;; Load Keyfreq if its installed
 (if (package-installed-p 'keyfreq)
-    (message "Loading Keyfreq")
-  (message "You should install keyfreq"))
+    (keyfreq-mode t))
+
 
 
 ;; Set up some useful `auto-mode-alist' mappings
@@ -140,3 +140,12 @@
 
 ;; Default is for *.html.php to use html-mode, FAIL!
 (add-to-list 'auto-mode-alist '("\\.html\\.php\\'" . php-mode))
+
+
+;; Set up auto-complete
+(if (package-installed-p 'auto-complete)
+    (global-auto-complete-mode t))
+
+;; Rainbow delimiters if available
+(if (package-installed-p 'rainbow-delimiters)
+    (global-rainbow-delimiters-mode t))
