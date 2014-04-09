@@ -25,7 +25,7 @@
 (setq initial-scratch-message "")
 
 ;; Minimal Cursor
-(setq cursor-type 'hbar)
+(setq-default cursor-type 'hbar)
 
 ;; Add a fringe.
 ;; It's quite nice.
