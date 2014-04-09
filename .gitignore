@@ -5,4 +5,5 @@ places
 .smex-items
 bookmarks
 url
-semanticdb
+ac-comphist.dat
+semanticdb/
