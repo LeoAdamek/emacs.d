@@ -18,4 +18,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background "black" :foreground "grey" :family "Terminus" :height 80))))
+ '(ac-completion-face ((t (:foreground "cyan" :underline t))))
  '(fringe ((t (:background "black")))))

@@ -2,11 +2,14 @@
 (defvar package-list
   '(
     php-mode
-    mmm-mode
     nxml
     helm
     yasnippet
     moe-theme
+    helm-gist
+    auto-complete
+    rainbow-delimiters
+    magit
     )
 )
 
@@ -25,3 +28,7 @@
 (dolist (package package-list)
   (when (not (package-installed-p package))
     (package-install package)))
+
+(provide 'packages)
+;;; packages.el ends here
+

@@ -149,3 +149,6 @@
 ;; Rainbow delimiters if available
 (if (package-installed-p 'rainbow-delimiters)
     (global-rainbow-delimiters-mode t))
+
+
+(global-flycheck-mode t)
