@@ -5,7 +5,7 @@
     nxml
     helm
     yasnippet
-    moe-theme
+;;    moe-theme
     helm-gist
     auto-complete
     rainbow-delimiters

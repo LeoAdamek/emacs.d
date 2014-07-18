@@ -26,11 +26,11 @@
 ;; Set the *scratch* buffer default to ""
 (setq initial-scratch-message "")
 
-;; Minimal Cursor (looks like a _ )
+;; Minimal Cursor
 (setq-default cursor-type 'hbar)
 
 ;; Add a fringe.
-;; It's quite nice and makes things easier to read
+;; It's quite nice.
 (set-fringe-mode
  (/ (- (frame-pixel-width)
        (* 200 (frame-char-width)))
@@ -75,7 +75,7 @@
 ;; The fact that this isn't default behaviour is sinful.
 ;; CURSE YOU STALLMAN!
 ;; Code from emacswiki/BackupsDirectory
-(defconst emacs-tmp-dir (make-temp-file "emacs-temp" 'dir))
+(defconst emacs-tmp-dir (format "%s/emacs/%s" temporary-file-directory (user-uid)))
 
 (setq backup-directory-alist
       `((".*" . ,emacs-tmp-dir)))
