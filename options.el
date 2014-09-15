@@ -101,15 +101,11 @@
 ;; Use soft-tabs by default (spaces inserted when tab pressed)
 (setq-default indent-tabs-mode nil)
 
-;; Default theme is `moe-dark', from package `moe-theme'
+;; Default theme is `gruvbox', from package `gruvbox-theme'
 ;; If that's not installed, load `wombat'
-;;(if (package-installed-p 'moe-theme)
-;;    (load-theme 'moe-dark)
-;; (load-theme 'wombat))
-;;(load-theme 'molokai)
-(if (package-installed-p 'monokai-theme)
-    (load-theme 'monokai)
-  (load-theme 'wombat))
+(if (package-installed-p 'gruvbox-theme)
+    (load-theme 'gruvbox)
+(load-theme 'wombat))
 
 ;; Enable Semantic Mode
 (semantic-mode t)
@@ -128,7 +124,7 @@
 (if (package-installed-p 'yasnippet)
     (yas-global-mode t))
 
-;; Load some Snippets
+;; Load some extra Snippets
 (setq yas-snippet-dirs
       '("~/.emacs.d/snippets"))
 
@@ -185,3 +181,7 @@
 
 
 (global-flycheck-mode t)
+
+(provide 'options)
+
+;;; options.el ends here

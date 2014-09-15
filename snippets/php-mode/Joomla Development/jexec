@@ -4,4 +4,8 @@
 # group: PHP
 # contributor: LeoAdamek
 # --
-defined('_JEXEC') or die;
+/*
+ * Disallow direct access to this file
+ * Ensure it is called from within Joomla.
+ */
+defined('_JEXEC') or die('Direct execution of this file disallowed');

@@ -23,3 +23,8 @@
 ;; after-change-major-mode-hook
 ;; TBD
 (put 'downcase-region 'disabled nil)
+
+
+(provide 'init)
+
+;;; init.el ends here
