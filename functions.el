@@ -1,5 +1,5 @@
-;;
-;;
+;; functions --- Utility Functions for (my) emacs
+;;; Commentary:
 ;; Leo Adamek's emacs.d
 ;;
 ;;
@@ -60,3 +60,8 @@ by using nxml's indentation rules."
         (backward-char) (insert "\n"))
       (indent-region begin end))
     (message "Region formatted."))
+
+
+(provide 'functions)
+
+;;; functions.el ends here
