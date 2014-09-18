@@ -101,10 +101,10 @@
 ;; Use soft-tabs by default (spaces inserted when tab pressed)
 (setq-default indent-tabs-mode nil)
 
-;; Default theme is `gruvbox', from package `gruvbox-theme'
+;; Default theme is `spacegray', from package `spacegray-theme'
 ;; If that's not installed, load `wombat'
-(if (package-installed-p 'gruvbox-theme)
-    (load-theme 'gruvbox)
+(if (package-installed-p 'spacegray-theme)
+    (load-theme 'spacegray)
 (load-theme 'wombat))
 
 ;; Enable Semantic Mode
@@ -117,22 +117,18 @@
 
 
 ;; Load HELM
-(if (package-installed-p 'helm)
+(when (package-installed-p 'helm)
     (helm-mode t))
 
 ;; Load YASnippet
-(if (package-installed-p 'yasnippet)
-    (yas-global-mode t))
+(when (package-installed-p 'yasnippet)
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (yas-global-mode t))
 
-;; Load some extra Snippets
-(setq yas-snippet-dirs
-      '("~/.emacs.d/snippets"))
 
 ;; Load Keyfreq if its installed
-(if (package-installed-p 'keyfreq)
+(when (package-installed-p 'keyfreq)
     (keyfreq-mode t))
-
-
 
 ;; Set up some useful `auto-mode-alist' mappings
 
@@ -148,11 +144,11 @@
 
 
 ;; Set up auto-complete
-(if (package-installed-p 'auto-complete)
+(when (package-installed-p 'auto-complete)
     (global-auto-complete-mode t))
 
 ;; Rainbow delimiters if available
-(if (package-installed-p 'rainbow-delimiters)
+(when (package-installed-p 'rainbow-delimiters)
     (global-rainbow-delimiters-mode t))
 
 ;; Set the mode line format

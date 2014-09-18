@@ -29,15 +29,13 @@
   (when (not (package-installed-p package))
     (package-install package)))
 
-(if (file-exists-p "./packages/slime/slime.el")
-    (progn
-      (add-to-list 'load-path "./packages/slime")
+
+;; Load SLIME if SBCL and SLIME are installed.
+(when (file-exists-p "~/.emacs.d/packages/slime/slime.el")
+      (add-to-list 'load-path "~/.emacs.d/packages/slime")
       (require 'slime-autoloads)
-
       (setq inferior-lisp-program "sbcl")
-
       (message "Loaded SLIME for SBCL"))
-  (message "Install SLIME and SBCL for awesome LISPing"))
 
 (provide 'packages)
 ;;; packages.el ends here
