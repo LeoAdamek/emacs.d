@@ -178,6 +178,10 @@
 
 (global-flycheck-mode t)
 
+;; Options for C mode
+(setq c-default-style "k&r"
+      c-basic-offset 4)
+
 (provide 'options)
 
 ;;; options.el ends here
