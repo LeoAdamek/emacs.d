@@ -182,6 +182,10 @@
 (setq c-default-style "k&r"
       c-basic-offset 4)
 
+;; If magit is installed, then set up a new short cut for it
+(when (package-installed-p 'magit)
+  (global-set-key (kbd "C-c g") 'magit-status))
+
 (provide 'options)
 
 ;;; options.el ends here
