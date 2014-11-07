@@ -147,10 +147,6 @@
 (when (package-installed-p 'auto-complete)
     (global-auto-complete-mode t))
 
-;; Rainbow delimiters if available
-(when (package-installed-p 'rainbow-delimiters)
-    (global-rainbow-delimiters-mode t))
-
 ;; Set the mode line format
 ;; mode line
 (setq-default mode-line-format

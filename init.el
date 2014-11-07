@@ -11,7 +11,7 @@
 (setq custom-file
       (expand-file-name "~/.emacs.d/custom.el"))
 
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (message "Loading Custom file")
 (load custom-file)
