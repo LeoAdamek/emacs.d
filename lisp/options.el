@@ -186,7 +186,13 @@
 
   ;; Set some modes
   (add-to-list 'origami-parser-alist '(go-mode . origami-c-style-parser))
-  (add-to-list 'origami-parser-alist '(php-mode . origami-c-style-parser)))
+  (add-to-list 'origami-parser-alist '(php-mode . origami-c-style-parser))
+
+  ;; Hook it up to my modes
+  (add-hook 'go-mode-hook 'origami-mode)
+  (add-hook 'go-mode-hook 'origami-mode)
+  (add-hook 'javascript-mode-hook 'origami-mode)
+  )
 
 
 (provide 'options)
