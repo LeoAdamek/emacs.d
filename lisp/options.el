@@ -58,7 +58,7 @@
              "Use M-x hidden-mode-line-mode RET to return it.") )))
 
 ;; And turn it on!
-(hidden-mode-line-mode t)
+;; (hidden-mode-line-mode t)
 
 
 ;; Have a mode-line in C-s-c in the header
@@ -101,11 +101,11 @@
 ;; Use soft-tabs by default (spaces inserted when tab pressed)
 (setq-default indent-tabs-mode nil)
 
-;; Default theme is `spacegray', from package `spacegray-theme'
+;; Default theme is `moe', from package `moe-theme'
 ;; If that's not installed, load `wombat'
-(if (package-installed-p 'spacegray-theme)
-    (load-theme 'spacegray)
-(load-theme 'wombat))
+;; (if (package-installed-p 'moe-theme)
+;;    (load-theme 'moe-dark)
+;; (load-theme 'wombat))
 
 ;; Enable Semantic Mode
 (semantic-mode t)
@@ -115,7 +115,6 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
 
-
 ;; Load HELM
 (when (package-installed-p 'helm)
     (helm-mode t))
@@ -124,7 +123,6 @@
 (when (package-installed-p 'yasnippet)
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   (yas-global-mode t))
-
 
 ;; Load Keyfreq if its installed
 (when (package-installed-p 'keyfreq)
