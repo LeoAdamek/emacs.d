@@ -10,9 +10,8 @@
 ;; Set some colours & fonts
 ;; Black background, black fringe, grey text
 (custom-set-faces
- '(default ((t (:background "#101010" :family "ProggyTinySZ" :height 80) )) )
-;; '(default ((t (:background "black" :foreground "white" :family "Dejavu Sans Mono" :height 120) )) )
- '(fringe  ((t (:background "#101010") )) ) )
+ '(default ((t (:family "CodingFontTobi" :height 120) )) ))
+
 
 ;; Turn off GUI elements
 ;; Pretty self explainitory.
@@ -21,9 +20,10 @@
 (scroll-bar-mode -1)
 
 ;; Disable the default splash screen
+;; Why does it even exist?
 (setq inhibit-splash-screen t)
 
-;; Set the *scratch* buffer default to ""
+;; Set the *scratch* buffer contents to ""
 (setq initial-scratch-message "")
 
 ;; Minimal Cursor (looks like a _ )
@@ -181,6 +181,23 @@
 ;; If magit is installed, then set up a new short cut for it
 (when (package-installed-p 'magit)
   (global-set-key (kbd "C-c g") 'magit-status))
+
+
+;; If origami is installed, set it up
+(when (package-installed-p 'origami)
+  (require 'origami)
+
+  ;; Set the key bindings
+  (global-set-key (kbd "C-c z c") 'origami-node-close)
+  (global-set-key (kbd "C-c z C") 'origami-node-close-recurisvely)
+  (global-set-key (kbd "C-c z o") 'origami-node-open)
+  (global-set-key (kbd "C-c z O") 'origami-node-open-recursively)
+
+  ;; Set some modes
+  (add-to-list 'origami-parser-alist '(go-mode . origami-c-style-parser))
+  (add-to-list 'origami-parser-alist '(php-mode . origami-c-style-parser)))
+
+
 
 (provide 'options)
 
