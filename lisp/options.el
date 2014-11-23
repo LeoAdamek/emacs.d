@@ -190,7 +190,7 @@
 
   ;; Hook it up to my modes
   (add-hook 'go-mode-hook 'origami-mode)
-  (add-hook 'go-mode-hook 'origami-mode)
+  (add-hook 'php-mode-hook 'origami-mode)
   (add-hook 'javascript-mode-hook 'origami-mode)
   )
 
