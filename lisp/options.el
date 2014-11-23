@@ -188,15 +188,13 @@
   (require 'origami)
 
   ;; Set the key bindings
-  (global-set-key (kbd "C-c z c") 'origami-close-node)
-  (global-set-key (kbd "C-c z C") 'origami-close-node-recurisvely)
-  (global-set-key (kbd "C-c z o") 'origami-open-node)
-  (global-set-key (kbd "C-c z O") 'origami-open-node-Recursively)
+  (global-set-key (kbd "C-c f f") 'origami-toggle-node)
+  (global-set-key (kbd "C-c f F") 'origami-recursively-toggle-node)
+  (global-set-key (kbd "C-c f a") 'origami-toggle-all-nodes)
 
   ;; Set some modes
   (add-to-list 'origami-parser-alist '(go-mode . origami-c-style-parser))
   (add-to-list 'origami-parser-alist '(php-mode . origami-c-style-parser)))
-
 
 
 (provide 'options)
