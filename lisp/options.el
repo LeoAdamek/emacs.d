@@ -27,7 +27,7 @@
 ;; It's quite nice and makes things easier to read
 (set-fringe-mode
  (/ (- (frame-pixel-width)
-       (* 200 (frame-char-width)))
+       (* 400 (frame-char-width)))
     16))
 
 
