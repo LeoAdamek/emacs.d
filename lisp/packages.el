@@ -45,9 +45,7 @@
 
 (when (file-exists-p "~/.emacs.d/packages/moe-theme/moe-theme.el")
   (add-to-list 'load-path "~/.emacs.d/packages/moe-theme")
-  (require 'moe-theme)
-  (load-theme 'moe-dark)
-  (message "Set Theme to moe-dark"))
+  (require 'my-moe))
 
 (provide 'packages)
 ;;; packages.el ends here

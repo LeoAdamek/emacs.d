@@ -7,12 +7,6 @@
 ;;
 ;;; Code:
 
-;; Set some colours & fonts
-;; Black background, black fringe, grey text
-(custom-set-faces
- '(default ((t (:family "CodingFontTobi" :height 120) )) ))
-
-
 ;; Turn off GUI elements
 ;; Pretty self explainitory.
 (menu-bar-mode -1)
