@@ -1,3 +1,6 @@
 [submodule "packages/slime"]
 	path = packages/slime
 	url = https://github.com/slime/slime.git
+[submodule "packages/moe-theme"]
+	path = packages/moe-theme
+	url = https://github.com/kuanyui/moe-theme.el
