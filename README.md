@@ -40,9 +40,8 @@ This emacs is equipped with some custom keybindings for some added awesomeness.
 | <kbd>C-c f a</kbd> | Toggle all Folds   |
 | <kbd>C-c f F</kbd> | Toggle fold        |
 |                    | recusively         |
-
-
-
+| <kbd>C-c f A</kbd> | Toggle all folds   |
+|                    | recursively        |
 
 
 PACKAGES
@@ -54,3 +53,15 @@ By default these packages will all be installed. The following repositories are 
 * MELPA (I know this isn't a popular choice, and I will look at using git submodules in place of MELPA)
 * Marmalade Repo
 * ELPA (the default repo)
+
+### Really Useful™ Packages Included
+
+The following packages are included by default which are really useful:
+
+* `magit` -- Magical Git integration
+* `yasnippet` -- Powerful snippet system + custom snippets
+* `origami` -- Powerful, flexible code folding
+* `moe-theme` -- Excellent theme, so kawaii~
+* `nxml-mode` -- Powerful XML editing tools.
+
+I'm aware half of those started with "Powerful", but you find a better way to describe them!
