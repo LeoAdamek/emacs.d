@@ -1,10 +1,9 @@
-=======================
-  Emacs Configuration
-=======================
+=====================
+ Emacs Configuration
+=====================
 
---------
- ABOUT
---------
+ABOUT
+=====
 
 This repository contains my emacs configuration.
 I decided to craft my own configuration from scratch for simplicity and stability.
@@ -13,9 +12,8 @@ Read this to understand how it works.
 Some things aren't perfect, but I'm still somewhat new to elsip :wink:
 
 
---------------
- STRUCTURE
---------------
+STRUCTURE
+=========
 
 The following structure is used here:
 
@@ -30,9 +28,29 @@ The following structure is used here:
 
 Hopefully this helps.
 
--------------
- PACKAGES
--------------
+KEYBINDINGS
+===========
+
+This emacs is equipped with some custom keybindings for some added awesomeness.
+
++--------------------+--------------------+
+| **Key Binding**    | **Action**         |
+|                    |                    |
++--------------------+--------------------+
+| <kbd>C-c g</kbd>   | Show Magit Summary |
+|                    |                    |
++--------------------+--------------------+
+| <kbd>C-c f f</kbd> | Toggle Fold        |
+|                    |                    |
++--------------------+--------------------+
+| <kbd>C-c f a</kbd> | Toggle all Folds   |
++--------------------+--------------------+
+
+
+
+
+PACKAGES
+========
 
 The file *packages.el* defines a list of default packages called *package-list*
 By default these packages will all be installed. The following repositories are also added.
