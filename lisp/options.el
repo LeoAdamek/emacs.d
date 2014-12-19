@@ -27,7 +27,7 @@
 ;; It's quite nice and makes things easier to read
 (set-fringe-mode
  (/ (- (frame-pixel-width)
-       (* 400 (frame-char-width)))
+       (* 200 (frame-char-width)))
     16))
 
 
@@ -167,8 +167,7 @@
 (global-flycheck-mode t)
 
 ;; Options for C mode
-(setq c-default-style "k&r"
-      c-basic-offset 4)
+(setq c-basic-offset 4)
 
 ;; If magit is installed, then set up a new short cut for it
 (when (package-installed-p 'magit)
