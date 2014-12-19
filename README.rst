@@ -45,6 +45,9 @@ This emacs is equipped with some custom keybindings for some added awesomeness.
 +--------------------+--------------------+
 | <kbd>C-c f a</kbd> | Toggle all Folds   |
 +--------------------+--------------------+
+| <kbd>C-c f F</kbd> | Toggle fold        |
+|                    | recusively         |
++--------------------+--------------------+
 
 
 
