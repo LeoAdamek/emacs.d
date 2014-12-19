@@ -32,21 +32,15 @@ KEYBINDINGS
 
 This emacs is equipped with some custom keybindings for some added awesomeness.
 
-+--------------------+--------------------+
+
 | **Key Binding**    | **Action**         |
-|                    |                    |
-+--------------------+--------------------+
+| :----------------: | :----------------: |
 | <kbd>C-c g</kbd>   | Show Magit Summary |
-|                    |                    |
-+--------------------+--------------------+
 | <kbd>C-c f f</kbd> | Toggle Fold        |
-|                    |                    |
-+--------------------+--------------------+
 | <kbd>C-c f a</kbd> | Toggle all Folds   |
-+--------------------+--------------------+
 | <kbd>C-c f F</kbd> | Toggle fold        |
 |                    | recusively         |
-+--------------------+--------------------+
+
 
 
 
