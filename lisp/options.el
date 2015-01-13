@@ -142,8 +142,7 @@
 ;; Set the mode line format
 ;; mode line
 (setq-default mode-line-format
-              (quote
-               (" "
+               '(" "
                 ;; mode string
                 (:propertize global-mode-string face 'mode-line-mode-string)
 
@@ -151,17 +150,17 @@
                 (:propertize (:eval (if (> (length default-directory) 17)
                                         (concat "..." (substring default-directory -20))
                                       default-directory))
-                             face 'mode-line-folder-face)
+                             face 'mode-line-emphasis)
 
                 ;; file name
-                (:propertize mode-line-buffer-identification face 'mode-line-buffer-name)
-                (:propertize mode-line-modified face 'mode-line-modified-face)
+                (:propertize mode-line-buffer-identification face 'mode-line-emphasis)
+                (:propertize mode-line-modified)
                 "  "
                 ;; value of 'mode-name'
-                (:propertize "%m" face 'mode-line-mode-name)
+                (:propertize "%m" face 'mode-line-emphasis)
                 " :: "
                 ;; line #
-                "line %l, %p")))
+                "line %l, %p"))
 
 
 (global-flycheck-mode t)
@@ -191,7 +190,6 @@
   (add-hook 'prog-mode-hook
             (lambda () (origami-mode)))
   )
-
 
 (provide 'options)
 
