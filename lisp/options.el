@@ -27,7 +27,7 @@
 ;; It's quite nice and makes things easier to read
 (set-fringe-mode
  (/ (- (frame-pixel-width)
-       (* 400 (frame-char-width)))
+       (* 200 (frame-char-width)))
     16))
 
 
@@ -142,8 +142,7 @@
 ;; Set the mode line format
 ;; mode line
 (setq-default mode-line-format
-              (quote
-               (" "
+               '(" "
                 ;; mode string
                 (:propertize global-mode-string face 'mode-line-mode-string)
 
@@ -151,24 +150,23 @@
                 (:propertize (:eval (if (> (length default-directory) 17)
                                         (concat "..." (substring default-directory -20))
                                       default-directory))
-                             face 'mode-line-folder-face)
+                             face 'mode-line-emphasis)
 
                 ;; file name
-                (:propertize mode-line-buffer-identification face 'mode-line-buffer-name)
-                (:propertize mode-line-modified face 'mode-line-modified-face)
+                (:propertize mode-line-buffer-identification face 'mode-line-emphasis)
+                (:propertize mode-line-modified)
                 "  "
                 ;; value of 'mode-name'
-                (:propertize "%m" face 'mode-line-mode-name)
+                (:propertize "%m" face 'mode-line-emphasis)
                 " :: "
                 ;; line #
-                "line %l, %p")))
+                "line %l, %p"))
 
 
 (global-flycheck-mode t)
 
 ;; Options for C mode
-(setq c-default-style "k&r"
-      c-basic-offset 4)
+(setq c-basic-offset 4)
 
 ;; If magit is installed, then set up a new short cut for it
 (when (package-installed-p 'magit)
@@ -192,7 +190,6 @@
   (add-hook 'prog-mode-hook
             (lambda () (origami-mode)))
   )
-
 
 (provide 'options)
 
