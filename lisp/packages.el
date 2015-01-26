@@ -12,14 +12,19 @@
     rainbow-delimiters
     magit
     origami
+    projectile
+    helm-projectile
     )
 )
 
 ;; Add Package Archives (MELPA and Marmalade)
+
 ;; Yes, I know MELPA is unpopular but whatever.
+;; I may remove it in the future. Be warned!
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
+;; Marmalade:: The best ELPA host.
 (add-to-list 'package-archives
 	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
@@ -46,6 +51,9 @@
 (when (file-exists-p "~/.emacs.d/packages/moe-theme/moe-theme.el")
   (add-to-list 'load-path "~/.emacs.d/packages/moe-theme")
   (require 'my-moe))
+
+;; A little notification goes a long way!
+(message "Loaded Packages")
 
 (provide 'packages)
 ;;; packages.el ends here

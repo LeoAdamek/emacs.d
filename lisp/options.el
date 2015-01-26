@@ -191,6 +191,16 @@
             (lambda () (origami-mode)))
   )
 
+;; Projectile
+(when (package-installed-p 'projectile)
+  (require 'projectile)
+  (projectile-global-mode)
+
+  (when (package-installed-p 'helm-projectile)
+    (require 'helm-projectile)
+    (setq projectile-completion-system 'helm)
+    (helm-projectile-on)))
+
 (provide 'options)
 
 ;;; options.el ends here
