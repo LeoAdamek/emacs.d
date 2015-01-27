@@ -25,12 +25,11 @@
 (message "Loading Functions")
 (require 'functions)
 
-;;
-;; Hook into a change in mode and load the appropreate file if the correct 
-;; after-change-major-mode-hook
-;; TBD
-(put 'downcase-region 'disabled nil)
+(setf host-options-file (concat "~/.emacs.d/lisp/" (system-name) ".el"))
 
+(when (file-exists-p host-options-file)
+  (load host-options-file)
+  (message (concat "Loaded options for " (system-name))))
 
 (provide 'init)
 

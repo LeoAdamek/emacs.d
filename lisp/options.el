@@ -198,8 +198,7 @@
 
   (when (package-installed-p 'helm-projectile)
     (require 'helm-projectile)
-    (setq projectile-completion-system 'helm)
-    (helm-projectile-on)))
+    (setq projectile-completion-system 'helm)))
 
 (provide 'options)
 
