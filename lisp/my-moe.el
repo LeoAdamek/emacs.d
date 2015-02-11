@@ -15,7 +15,7 @@
 ;; Set some colours & fonts
 ;; Black background, black fringe, grey text
 (custom-set-faces
- '(default ((t (:background "#111" :family "CodingFontTobi" :height 120) )) )
+ '(default ((t (:background "#111" :height 120) )) )
  '(fringe ((t (:background "#111") )) ))
 
 (provide 'my-moe)

@@ -4,10 +4,11 @@
 ;;
 ;; Contains options specific to the "think-leo" host
 ;;
+;;; Code:
 
 ;; The high DPI screen makes pixel fonts hard to read!
-(set-default-font "Envy Code R 12")
+(set-frame-font "Envy Code R 14" t)
 
-(provide 'think-leo-local)
+(provide 'think-leo.local)
 
 ;;; think-leo.local.el ends here
