@@ -42,6 +42,7 @@ This emacs is equipped with some custom keybindings for some added awesomeness.
 |                    | recusively         |
 | <kbd>C-c f A</kbd> | Toggle all folds   |
 |                    | recursively        |
+| <kbd>C-c p</kbd>   | Projectile prefix  |
 
 
 PACKAGES
@@ -63,5 +64,6 @@ The following packages are included by default which are really useful:
 * `origami` -- Powerful, flexible code folding
 * `moe-theme` -- Excellent theme, so kawaii~
 * `nxml-mode` -- Powerful XML editing tools.
+* `projectile` -- Powerfile project handling for emacs
 
 I'm aware half of those started with "Powerful", but you find a better way to describe them!
