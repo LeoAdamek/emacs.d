@@ -52,6 +52,10 @@
   (add-to-list 'load-path "~/.emacs.d/packages/moe-theme")
   (require 'my-moe))
 
+(when (file-exists-p "~/.emacs.d/packages/geben/geben.el")
+  (add-to-list 'load-path "~/.emacs.d/packages/geben")
+  (require 'geben))
+
 ;; A little notification goes a long way!
 (message "Loaded Packages")
 
