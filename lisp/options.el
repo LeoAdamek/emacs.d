@@ -130,10 +130,13 @@
 (add-to-list 'auto-mode-alist '("config.ru\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake\\'"   . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\Rakefile\\'". ruby-mode))
+(add-to-list 'auto-mode-alist '("\\Bowerfile\\'" . ruby-mode))
 
 ;; Default is for *.html.php to use html-mode, FAIL!
 (add-to-list 'auto-mode-alist '("\\.html\\.php\\'" . php-mode))
 
+;; For .php files within a tmpl folder, set them to web-mode
+(add-to-list 'auto-mode-alist '("\\tmpl/\\.php\\'" . web-mode))
 
 ;; Set up auto-complete
 (when (package-installed-p 'auto-complete)
@@ -147,8 +150,8 @@
                 (:propertize global-mode-string face 'mode-line-mode-string)
 
                 ;; file path
-                (:propertize (:eval (if (> (length default-directory) 17)
-                                        (concat "..." (substring default-directory -20))
+                (:propertize (:eval (if (> (length default-directory) 20)
+                                        (concat "..." (substring default-directory -23))
                                       default-directory))
                              face 'mode-line-emphasis)
 
