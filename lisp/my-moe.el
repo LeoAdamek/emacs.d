@@ -12,6 +12,8 @@
 (moe-dark)
 (setq moe-theme-resize-markdown-title '(2.0 1.7 1.5 1.3 1.0 1.0))
 
+(set-frame-font "CodingFontTobi 12")
+
 ;; Set some colours & fonts
 ;; Black background, black fringe, grey text
 (custom-set-faces
