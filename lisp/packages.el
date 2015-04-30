@@ -56,6 +56,12 @@
   (add-to-list 'load-path "~/.emacs.d/packages/geben")
   (require 'geben))
 
+;; Special sauces for CIDER
+(when (package-installed-p 'cider)
+  (when (package-installed-p 'rainbow-delimiters)
+    (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)))
+
+
 ;; A little notification goes a long way!
 (message "Loaded Packages")
 
