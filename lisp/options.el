@@ -116,6 +116,7 @@
 ;; Load YASnippet
 (when (package-installed-p 'yasnippet)
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (global-set-key (kbd "C-c TAB") 'yas-insert-snippet)
   (yas-global-mode t))
 
 ;; Load Keyfreq if its installed
