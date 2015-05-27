@@ -174,7 +174,8 @@
 
 ;; If magit is installed, then set up a new short cut for it
 (when (package-installed-p 'magit)
-  (global-set-key (kbd "C-c g") 'magit-status))
+  (global-set-key (kbd "C-c g") 'magit-status)
+  (setq magit-last-seen-setup-instructions "1.4.0"))
 
 
 ;; If origami is installed, set it up
