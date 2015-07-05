@@ -13,9 +13,6 @@
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
-(message "Loading Custom file")
-(load custom-file)
-
 (message "Loading Packages")
 (require 'packages)
 
@@ -26,7 +23,6 @@
 (require 'functions)
 
 (defvar host-options-file (concat (expand-file-name "~/.emacs.d/lisp/") (system-name) ".el"))
-
 (when (file-exists-p host-options-file)
   (load host-options-file)
   (message (concat "Loaded options for " (system-name))))
