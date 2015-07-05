@@ -47,14 +47,9 @@
       (setq inferior-lisp-program "sbcl")
       (message "Loaded SLIME for SBCL"))
 
-
 (when (file-exists-p "~/.emacs.d/packages/moe-theme/moe-theme.el")
   (add-to-list 'load-path "~/.emacs.d/packages/moe-theme")
   (require 'my-moe))
-
-(when (file-exists-p "~/.emacs.d/packages/geben/geben.el")
-  (add-to-list 'load-path "~/.emacs.d/packages/geben")
-  (require 'geben))
 
 (when (package-installed-p 'haskell-mode)
   (require 'haskell-interactive-mode)
@@ -91,6 +86,7 @@
   ;; Re-bind M-. from `find-tag' to `godef-jump'
   (add-hook 'go-mode-hook (lambda ()
                             (local-key-set (kbd "M-.") 'godef-jump))))
+
 
 ;; A little notification goes a long way!
 (message "Loaded Packages & Settings")
