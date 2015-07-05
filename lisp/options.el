@@ -171,6 +171,10 @@
 ;; Options for C mode
 (setq c-basic-offset 4)
 
+;; Enable YARD mode if installed, for ruby mode.
+(when (package-installed-p 'yard-mode)
+  (add-hook 'ruby-mode-hook 'yard-mode))
+
 ;; If magit is installed, then set up a new short cut for it
 (when (package-installed-p 'magit)
   (global-set-key (kbd "C-c g") 'magit-status))
