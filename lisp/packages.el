@@ -56,8 +56,44 @@
   (add-to-list 'load-path "~/.emacs.d/packages/geben")
   (require 'geben))
 
+(when (package-installed-p 'haskell-mode)
+  (require 'haskell-interactive-mode)
+  (require 'haskell-process)
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+  (defvar haskell-font-lock-symbols t))
+
+(when (package-installed-p 'auto-complete)
+  (defvar ac-auto-show-menu t)
+  (defvar ac-auto-start t)
+  (defvar ac-candidate-limit 25))
+
+(when (package-installed-p 'coffee-mode)
+  (defvar coffee-tab-width 2))
+
+(when (package-installed-p 'rainbow-delimiters)
+  (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+  (when (package-installed-p 'php-mode)
+    (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)))
+
+
+(when (package-installed-p 'go-mode)
+  ; Run gofmt on save
+  (add-hook 'before-save-hook 'gofmt-before-save)
+
+  ;; Set some keys local to go-mode
+  (add-hook 'go-mode-hook (lambda ()
+                            (local-key-set (kbd "C-c C-r") 'go-removed-unused-imports)))
+
+  (add-hook 'go-mode-hook (lambda ()
+                            (local-key-ket (kbd "C-c i") 'go-goto-imports)))
+
+  ;; Re-bind M-. from `find-tag' to `godef-jump'
+  (add-hook 'go-mode-hook (lambda ()
+                            (local-key-set (kbd "M-.") 'godef-jump))))
+
 ;; A little notification goes a long way!
-(message "Loaded Packages")
+(message "Loaded Packages & Settings")
 
 (provide 'packages)
 ;;; packages.el ends here
