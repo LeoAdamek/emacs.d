@@ -1,0 +1,18 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jview-display
+# key: jview-display
+# group: PHP
+# contributor: LeoAdamek
+# --
+/**
+ * Display the view
+ *
+ * @param string $template Template Override
+ *
+ * @return mixed View
+ */
+ public function display($template = null)
+ {
+        // Code here...
+        parent::display($template);
+ }        
