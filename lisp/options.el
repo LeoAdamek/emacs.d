@@ -209,6 +209,13 @@
     (require 'helm-projectile)
     (setq projectile-completion-system 'helm)))
 
+;; Flyspell
+(when (package-installed-p 'flyspell)
+  (require 'flyspell)
+  ;; Enable flyspell on modes where it is most useful (but not all)
+  (add-hook 'text-mode-hook 'flyspell-mode))
+
+
 (provide 'options)
 
 ;;; options.el ends here
