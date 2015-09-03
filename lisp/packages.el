@@ -70,22 +70,24 @@
 (when (package-installed-p 'go-mode)
   ; Run gofmt on save
   (add-hook 'before-save-hook 'gofmt-before-save)
-
   ;; Set some keys local to go-mode
-  (add-hook 'go-mode-hook (lambda ()
-                            (local-key-set (kbd "C-c C-r") 'go-removed-unused-imports)))
-
-  (add-hook 'go-mode-hook (lambda ()
-                            (local-key-ket (kbd "C-c i") 'go-goto-imports)))
-
   ;; Re-bind M-. from `find-tag' to `godef-jump'
   (add-hook 'go-mode-hook (lambda ()
-                            (local-key-set (kbd "M-.") 'godef-jump))))
+                            (local-key-set (kbd "C-c C-r") 'go-removed-unused-imports)
+                            (local-key-set (kbd "C-c i") 'go-goto-imports)
+                            (local-key-set (kbd "M-.") 'godef-jump)
+                            (when (> (length (default-directory)) 0)
+                              (setenv "GOPATH" (default-directory))))))
+
+
+
 
 ;; Company Mode
 (when (package-installed-p 'company)
   (require 'company)
   (require 'company-go)
+  (add-hook 'go-mode-hook (lambda ()
+                            (set (make-local-variable 'company-backends) '(company-go))))
   (setq company-idle-delay 0)
   (add-hook 'after-init-hook 'global-company-mode))
 
