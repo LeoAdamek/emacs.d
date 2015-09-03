@@ -58,11 +58,6 @@
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
   (defvar haskell-font-lock-symbols t))
 
-(when (package-installed-p 'auto-complete)
-  (defvar ac-auto-show-menu t)
-  (defvar ac-auto-start t)
-  (defvar ac-candidate-limit 25))
-
 (when (package-installed-p 'coffee-mode)
   (defvar coffee-tab-width 2))
 
@@ -87,7 +82,30 @@
   (add-hook 'go-mode-hook (lambda ()
                             (local-key-set (kbd "M-.") 'godef-jump))))
 
+;; Company Mode
+(when (package-installed-p 'company)
+  (require 'company)
+  (require 'company-go)
+  (setq company-idle-delay 0)
+  (add-hook 'after-init-hook 'global-company-mode))
 
+
+;; Stop company and yasnippit fighting
+(when (and (package-installed-p 'company) (package-installed-p 'yasnippet))
+  "Shamelessly copied from https://gist.github.com/nonsequitur/265010"
+  (define-key company-active-map "\t" 'company-yasnippet-or-completion)
+
+  (defun company-yasnippet-or-completion ()
+    (interactive)
+    (if (yas/expansion-at-point)
+        (progn (company-abort)
+               (yas/expand))
+      (company-complete-common)))
+
+  (defun yas/expansion-at-point ()
+    "Tested with v0.6.1. Extracted from `yas/expand-1'"
+    (first (yas/current-key))))
+  
 ;; A little notification goes a long way!
 (message "Loaded Packages & Settings")
 

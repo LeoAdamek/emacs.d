@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Include System Library
+# key: #is
+# binding: direct-keybinding
+# --
+#include <$1.h>

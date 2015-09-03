@@ -54,6 +54,7 @@
 ;; And turn it on!
 ;; (hidden-mode-line-mode t)
 
+(semantic-mode)
 
 ;; Have a mode-line in C-s-c in the header
 (defun mode-line-in-header ()
@@ -95,15 +96,6 @@
 ;; Use soft-tabs by default (spaces inserted when tab pressed)
 (setq-default indent-tabs-mode nil)
 
-;; Default theme is `moe', from package `moe-theme'
-;; If that's not installed, load `wombat'
-;; (if (package-installed-p 'moe-theme)
-;;    (load-theme 'moe-dark)
-;; (load-theme 'wombat))
-
-;; Enable Semantic Mode
-(semantic-mode t)
-
 ;; Change how duplicate filenames are handled.
 ;; Change it to filename|parent-directory-until-unique
 (require 'uniquify)
@@ -139,10 +131,6 @@
 ;; For .php files within a tmpl folder, set them to web-mode
 (add-to-list 'auto-mode-alist '("\\tmpl/\\.php\\'" . web-mode))
 
-;; Set up auto-complete
-(when (package-installed-p 'auto-complete)
-    (global-auto-complete-mode t))
-
 ;; Set the mode line format
 ;; mode line
 (setq-default mode-line-format
@@ -170,7 +158,7 @@
 (global-flycheck-mode t)
 
 ;; Options for C mode
-(setq c-basic-offset 4)
+(defvar c-basic-offset 4)
 
 ;; Enable YARD mode if installed, for ruby mode.
 (when (package-installed-p 'yard-mode)
@@ -197,8 +185,8 @@
 
   ;; Hook it up to my modes
   (add-hook 'prog-mode-hook
-            (lambda () (origami-mode)))
-  )
+            (lambda () (origami-mode))))
+
 
 ;; Projectile
 (when (package-installed-p 'projectile)
