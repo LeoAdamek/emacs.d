@@ -91,6 +91,11 @@
   (setq company-idle-delay 0)
   (add-hook 'after-init-hook 'global-company-mode))
 
+;; Emoji Company
+(when (package-installed-p 'company-emoji)
+  (require 'company-emoji)
+  (add-hook 'markdown-mode-hook 'company-emoji-init))
+
 
 ;; Stop company and yasnippit fighting
 (when (and (package-installed-p 'company) (package-installed-p 'yasnippet))
