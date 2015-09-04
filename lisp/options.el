@@ -51,6 +51,13 @@
      (concat "Hidden mode line enabled. "
              "Use M-x hidden-mode-line-mode RET to return it.") )))
 
+;; Option to turn it on *everywhere*
+(define-globalized-minor-mode global-hidden-mode-line-mode hidden-mode-line-mode hidden-mode-line-mode-on)
+
+(defun hidden-mode-line-mode-on ()
+  (hidden-mode-line-mode 1))
+
+
 ;; And turn it on!
 ;; (hidden-mode-line-mode t)
 

@@ -65,5 +65,6 @@ The following packages are included by default which are really useful:
 * `moe-theme` -- Excellent theme, so kawaii~
 * `nxml-mode` -- Powerful XML editing tools.
 * `projectile` -- Powerfile project handling for emacs
+* `company` -- Great auto completion for emacs.
 
 I'm aware half of those started with "Powerful", but you find a better way to describe them!
