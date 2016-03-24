@@ -75,9 +75,8 @@
   (add-hook 'go-mode-hook (lambda ()
                             (local-key-set (kbd "C-c C-r") 'go-removed-unused-imports)
                             (local-key-set (kbd "C-c i") 'go-goto-imports)
-                            (local-key-set (kbd "M-.") 'godef-jump)
-                            (when (> (length default-directory) 0)
-                              (setenv "GOPATH" default-directory)))))
+                            (local-key-set (kbd "M-.") 'godef-jump))))
+
 
 
 
