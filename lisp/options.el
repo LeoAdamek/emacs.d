@@ -27,7 +27,7 @@
 ;; It's quite nice and makes things easier to read
 (set-fringe-mode
  (/ (- (frame-pixel-width)
-       (* 200 (frame-char-width)))
+       (* 75 (frame-char-width)))
     16))
 
 
@@ -203,6 +203,13 @@
   (when (package-installed-p 'helm-projectile)
     (require 'helm-projectile)
     (setq projectile-completion-system 'helm)))
+
+;; Flyspell
+(when (package-installed-p 'flyspell)
+  (require 'flyspell)
+  ;; Enable flyspell on modes where it is most useful (but not all)
+  (add-hook 'text-mode-hook 'flyspell-mode))
+
 
 (provide 'options)
 
