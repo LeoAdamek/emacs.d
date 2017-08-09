@@ -30,6 +30,9 @@
        (* 75 (frame-char-width)))
     16))
 
+(set-default-font "Fira Code")
+
+
 
 ;; Turn off the mode line Ö :shocking:
 (defvar-local hidden-mode-line-mode nil)
@@ -155,11 +158,14 @@
                 (:propertize mode-line-buffer-identification face 'mode-line-emphasis)
                 (:propertize mode-line-modified)
                 "  "
-                ;; value of 'mode-name'
+                ;; current major mode
                 (:propertize "%m" face 'mode-line-emphasis)
-                " :: "
-                ;; line #
-                "line %l, %p"))
+
+                ;; list of minor modes
+                " +" minor-mode-alist
+
+                ;; current position in buffer
+                " @ line %l, %p"))
 
 
 (global-flycheck-mode t)

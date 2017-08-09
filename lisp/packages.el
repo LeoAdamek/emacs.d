@@ -7,10 +7,10 @@
     nxml
     helm
     yasnippet
-    helm-gist
     auto-complete
     rainbow-delimiters
     magit
+    tide
     origami
     projectile
     helm-projectile
@@ -62,9 +62,8 @@
   (defvar coffee-tab-width 2))
 
 (when (package-installed-p 'rainbow-delimiters)
-  (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
-  (when (package-installed-p 'php-mode)
-    (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)))
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
 
 
 (when (package-installed-p 'go-mode)
@@ -84,16 +83,28 @@
 ;; Company Mode
 (when (package-installed-p 'company)
   (require 'company)
-  (require 'company-go)
+  ;(require 'company-go)
   (add-hook 'go-mode-hook (lambda ()
                             (set (make-local-variable 'company-backends) '(company-go))))
   (setq company-idle-delay 0)
+  (setq company-tooltip-align-annotations t)
   (add-hook 'after-init-hook 'global-company-mode))
 
 ;; Emoji Company
 (when (package-installed-p 'company-emoji)
   (require 'company-emoji)
   (add-hook 'markdown-mode-hook 'company-emoji-init))
+
+(when (package-installed-p 'tide)
+  (add-hook 'typescript-mode-hook (lambda ()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save mode-enabled))
+    (eldoc-mode +1)
+    (tide-hl-identifier +1)))
+  (add-hook 'before-save-hook 'tide-format-before-save))
+    
 
 
 ;; Stop company and yasnippit fighting
