@@ -1,7 +1,10 @@
+;;; options -- Sets various Emacs related options
+;;
+;;; Commentary:
 ;;
 ;; File: `options.el`
 ;;
-;; Sets various options for emacs
+;; Sets various options for Emacs
 ;;
 ;; This file is licensed under GPLv2
 ;;
@@ -23,15 +26,22 @@
 ;; Minimal Cursor (looks like a _ )
 (setq-default cursor-type 'hbar)
 
-;; Add a fringe.
-;; It's quite nice and makes things easier to read
-(set-fringe-mode
- (/ (- (frame-pixel-width)
-       (* 75 (frame-char-width)))
-    16))
 
-(set-default-font "Fira Code")
+(defun *make-frame-pretty (frame)
+  "`*make-frame-pretty' will apply additional theme settings to the newly created FRAME to make it prettier."
+  (with-selected-frame frame
+  ;; Add a fringe.
+  ;; It's quite nice and makes things easier to read
+    (set-fringe-mode
+     (/ (- (frame-pixel-width)
+           (* 75 (frame-char-width)))
+        16))))
 
+(defvar my-frame-options-alist '((font . "Fira Code")))
+(setq default-frame-alist (append my-frame-options-alist default-frame-alist))
+(setq initial-frame-alist (append my-frame-options-alist initial-frame-alist))
+
+(add-hook 'after-make-frame-functions '*make-frames-pretty t)
 
 
 ;; Turn off the mode line Ö :shocking:
