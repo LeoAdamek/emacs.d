@@ -43,6 +43,9 @@
 
 (add-hook 'after-make-frame-functions '*make-frame-pretty t)
 
+;; Add a keybinding to toggle menu-mode.
+(global-set-key (kbd "C-c m") 'toggle-menu-bar-mode-from-frame)
+
 
 ;; Put all backups in the same place.
 ;; Avoid polluting repositories.
@@ -60,6 +63,7 @@
 
 ;; Put the bookmarks in ~/.emacs.d/bookmarks
 (setq boomark-default-file "~/.emacs.d/bookmarks")
+
 
 ;; Answer Yes/No prompts with Y/N instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
