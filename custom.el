@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (tide rainbow-delimiters php-mode origami magit jq-mode helm-projectile hackernews hacker-typer golint god-mode gobgen go-stacktracer go-snippets go-playground go-add-tags flymake-elixir flycheck flx-ido elixir-yasnippets elixir-mode elixir-mix csv-mode confluence company-statistics company-go coin-ticker clojure-mode browse-at-remote brainfuck-mode auto-complete))))
+    (company-restclient restclient-helm restclient typescript tide rvm ruby-interpolation ruby-hash-syntax ruby-guard ruby-end ruby-block rubocop rspec-mode rsense robe rinari rainbow-delimiters php-mode php-completion origami magit logstash-conf helm-robe helm-projectile helm-flyspell helm-company haskell-mode haml-mode flymake-haml flx-ido elixir-mode company-go company-emoji company-auctex clojure-mode auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
