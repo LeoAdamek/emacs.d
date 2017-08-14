@@ -41,7 +41,7 @@
 (setq default-frame-alist (append my-frame-options-alist default-frame-alist))
 (setq initial-frame-alist (append my-frame-options-alist initial-frame-alist))
 
-(add-hook 'after-make-frame-functions '*make-frames-pretty t)
+(add-hook 'after-make-frame-functions '*make-frame-pretty t)
 
 
 ;; Turn off the mode line Ö :shocking:
@@ -190,7 +190,7 @@
 ;; If magit is installed, then set up a new short cut for it
 (when (package-installed-p 'magit)
   (global-set-key (kbd "C-c g") 'magit-status)
-  (setq magit-last-seen-setup-instructions "1.4.0"))
+  (defvar magit-last-seen-setup-instructions "1.4.0"))
 
 
 ;; If origami is installed, set it up

@@ -3,17 +3,39 @@
   ;; These packages will be required and installed automatically.
   ;; If you've forked this, go ahead and edit this as you want
   '(
+    ;; PHP mode.
     php-mode
+
+    ;; XML editing tools
     nxml
+
+    ;; Helm puts you in control
     helm
+
+    ;; YASnippet - Powerful snippet engine
     yasnippet
-    auto-complete
+
+    ;; Rainbow Delimiters - Colour-codes levels of delimiters
     rainbow-delimiters
+
+    ;; Magit (Git Integration)
     magit
+
+    ;; Tide (TypeScript)
     tide
+
+    ;; Origami (code folding)
     origami
+
+    ;; Projectile
     projectile
     helm-projectile
+
+    ;; RESTClient interacts with HTTP from Emacs buffers
+    restclient
+    restclient-helm
+    company-restclient
+    
     )
 )
 
@@ -104,7 +126,15 @@
     (eldoc-mode +1)
     (tide-hl-identifier +1)))
   (add-hook 'before-save-hook 'tide-format-before-save))
-    
+
+(when (package-installed-p 'robe)
+  (add-hook 'ruby-mode-hook (lambda ()
+                              (interactive)
+                              (robe-mode +1)
+                              (eldoc-mode +1)
+                              (setq flycheck-check-syntax-automatically '(save mode-enabled))
+                              (flycheck-mode +1))))
+
 
 
 ;; Stop company and yasnippit fighting
