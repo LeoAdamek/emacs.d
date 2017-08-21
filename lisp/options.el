@@ -27,24 +27,24 @@
 (setq-default cursor-type 'hbar)
 
 
-(defun *make-frame-pretty (frame)
-  "`*make-frame-pretty' will apply additional theme settings to the newly created FRAME to make it prettier."
+(defun *configure-frame (frame)
+  "Update FRAME settings to my preferences."
   (with-selected-frame frame
-  ;; Add a fringe.
-  ;; It's quite nice and makes things easier to read
-    (set-fringe-mode
-     (/ (- (frame-pixel-width)
-           (* 75 (frame-char-width)))
-        16))))
+    (set-fringe-mode 48)
+    (default-font "Fira Code")))
+
+(add-hook 'after-make-frame-functions '*configure-frame t)
 
 (defvar my-frame-options-alist '((font . "Fira Code")))
 (setq default-frame-alist (append my-frame-options-alist default-frame-alist))
 (setq initial-frame-alist (append my-frame-options-alist initial-frame-alist))
 
-(add-hook 'after-make-frame-functions '*make-frame-pretty t)
-
 ;; Add a keybinding to toggle menu-mode.
-(global-set-key (kbd "C-c m") 'toggle-menu-bar-mode-from-frame)
+(global-set-key (kbd "C-c m m") 'toggle-menu-bar-mode-from-frame)
+
+;; Presentation Mode
+;; (Once I've built it!)
+;; (global-set-key (kbd "C-c m p") 'toggle-presentation-mode)
 
 
 ;; Put all backups in the same place.
@@ -63,7 +63,6 @@
 
 ;; Put the bookmarks in ~/.emacs.d/bookmarks
 (setq boomark-default-file "~/.emacs.d/bookmarks")
-
 
 ;; Answer Yes/No prompts with Y/N instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -189,6 +188,8 @@
   ;; Enable flyspell on modes where it is most useful (but not all)
   (add-hook 'text-mode-hook 'flyspell-mode))
 
+(setq gnus-select-method
+      '(nnimap "megumi.breakerofthings.email"))
 
 (provide 'options)
 
