@@ -105,17 +105,9 @@
 ;; Company Mode
 (when (package-installed-p 'company)
   (require 'company)
-  ;(require 'company-go)
-  (add-hook 'go-mode-hook (lambda ()
-                            (set (make-local-variable 'company-backends) '(company-go))))
   (setq company-idle-delay 0)
   (setq company-tooltip-align-annotations t)
   (add-hook 'after-init-hook 'global-company-mode))
-
-;; Emoji Company
-(when (package-installed-p 'company-emoji)
-  (require 'company-emoji)
-  (add-hook 'markdown-mode-hook 'company-emoji-init))
 
 (when (package-installed-p 'tide)
   (add-hook 'typescript-mode-hook (lambda ()
