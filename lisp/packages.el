@@ -89,6 +89,7 @@
 
 
 (when (package-installed-p 'go-mode)
+  (setq gofmt-command "goimports")
   ; Run gofmt on save
   (add-hook 'before-save-hook 'gofmt-before-save)
   ;; Set some keys local to go-mode
@@ -144,6 +145,14 @@
   (defun yas/expansion-at-point ()
     "Tested with v0.6.1. Extracted from `yas/expand-1'"
     (first (yas/current-key))))
+
+(when (and (package-installed-p 'racer) (package-installed-p 'rust-mode) (package-installed-p 'racer))
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+  (add-hook 'racer-mode-hook #'company-mode)
+  (require 'rust-mode)
+  (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+  (setq company-tooltip-align-annotations t))
   
 ;; A little notification goes a long way!
 (message "Loaded Packages & Settings")
