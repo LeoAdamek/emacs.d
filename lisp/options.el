@@ -6,7 +6,7 @@
 ;;
 ;; Sets various options for Emacs
 ;;
-;; This file is licensed under GPLv2
+;; This file is licensed under GPLv2.
 ;;
 ;;; Code:
 
@@ -30,8 +30,8 @@
 (defun *configure-frame (frame)
   "Update FRAME settings to my preferences."
   (with-selected-frame frame
-    (set-fringe-mode 48)
-    (default-font "Fira Code")))
+    (set-fringe-mode 48)))
+
 
 (add-hook 'after-make-frame-functions '*configure-frame t)
 
