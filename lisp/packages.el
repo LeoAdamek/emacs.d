@@ -153,6 +153,9 @@
   (require 'rust-mode)
   (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
   (setq company-tooltip-align-annotations t))
+
+(when (package-installed-p 'wakatime-mode)
+  (global-wakatime-mode))
   
 ;; A little notification goes a long way!
 (message "Loaded Packages & Settings")
