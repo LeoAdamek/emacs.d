@@ -146,6 +146,10 @@
     "Tested with v0.6.1. Extracted from `yas/expand-1'"
     (first (yas/current-key))))
 
+(when (package-installed-p 'helm)
+  (global-unset-key (kbd "M-x"))
+  (global-set-key (kbd "M-x") 'helm-M-x))
+
 (when (and (package-installed-p 'racer) (package-installed-p 'rust-mode) (package-installed-p 'racer))
   (add-hook 'rust-mode-hook #'racer-mode)
   (add-hook 'racer-mode-hook #'eldoc-mode)
