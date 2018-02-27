@@ -88,20 +88,6 @@
 
 
 
-(when (package-installed-p 'go-mode)
-  (setq gofmt-command "goimports")
-  ; Run gofmt on save
-  (add-hook 'before-save-hook 'gofmt-before-save)
-  ;; Set some keys local to go-mode
-  ;; Re-bind M-. from `find-tag' to `godef-jump'
-  (add-hook 'go-mode-hook (lambda ()
-                            (local-key-set (kbd "C-c C-r") 'go-removed-unused-imports)
-                            (local-key-set (kbd "C-c i") 'go-goto-imports)
-                            (local-key-set (kbd "M-.") 'godef-jump))))
-
-
-
-
 
 ;; Company Mode
 (when (package-installed-p 'company)
@@ -160,6 +146,22 @@
 
 (when (package-installed-p 'wakatime-mode)
   (global-wakatime-mode))
+
+
+
+(when (package-installed-p 'go-mode)
+  (setq gofmt-command "goimports")
+  ; Run gofmt on save
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  ;; Set some keys local to go-mode
+  ;; Re-bind M-. from `find-tag' to `godef-jump'
+  (add-hook 'go-mode-hook (lambda ()
+;                            (local-key-set (kbd "C-c C-r") 'go-removed-unused-imports)
+;                            (local-key-set (kbd "C-c i") 'go-goto-imports)
+;                            (local-key-set (kbd "M-.") 'godef-jump)
+                            (when (package-installed-p 'company-go)
+                              (message "Setting company backend to company-go")
+                              (set (make-local-variable 'company-backends) '(company-go))))))
   
 ;; A little notification goes a long way!
 (message "Loaded Packages & Settings")
