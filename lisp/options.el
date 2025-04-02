@@ -10,6 +10,8 @@
 ;;
 ;;; Code:
 
+(defface quote '() "Quote Face." :group 'basic-faces)
+
 ;; Turn off GUI elements
 ;; Pretty self explainitory.
 (menu-bar-mode -1)
@@ -35,7 +37,7 @@
 
 (add-hook 'after-make-frame-functions '*configure-frame t)
 
-(defvar my-frame-options-alist '((font . "Fira Code")))
+(defvar my-frame-options-alist '((font . "Iosevka")))
 (setq default-frame-alist (append my-frame-options-alist default-frame-alist))
 (setq initial-frame-alist (append my-frame-options-alist initial-frame-alist))
 
@@ -128,13 +130,15 @@
 
                 ;; file name
                 (:propertize mode-line-buffer-identification face 'mode-line-emphasis)
+
+                ;; Show if the buffer is modified
                 (:propertize mode-line-modified)
-                "  "
+
                 ;; current major mode
                 (:propertize "%m" face 'mode-line-emphasis)
 
-                ;; list of minor modes
-                " +" minor-mode-alist
+                ;; Minor modes
+                " +( " minor-mode-alist ")"
 
                 ;; current position in buffer
                 " @ line %l, %p"))
@@ -144,49 +148,6 @@
 
 ;; Options for C mode
 (defvar c-basic-offset 4)
-
-;; Enable YARD mode if installed, for ruby mode.
-(when (package-installed-p 'yard-mode)
-  (add-hook 'ruby-mode-hook 'yard-mode))
-
-;; If magit is installed, then set up a new short cut for it
-(when (package-installed-p 'magit)
-  (global-set-key (kbd "C-c g") 'magit-status)
-  (defvar magit-last-seen-setup-instructions "1.4.0"))
-
-
-;; If origami is installed, set it up
-(when (package-installed-p 'origami)
-  (require 'origami)
-
-  ;; Set the key bindings
-  (global-set-key (kbd "C-c f f") 'origami-toggle-node)
-  (global-set-key (kbd "C-c f F") 'origami-recursively-toggle-node)
-  (global-set-key (kbd "C-c f a") 'origami-toggle-all-nodes)
-
-  ;; Set some modes
-  (add-to-list 'origami-parser-alist '(go-mode . origami-c-style-parser))
-  (add-to-list 'origami-parser-alist '(php-mode . origami-c-style-parser))
-
-  ;; Hook it up to my modes
-  (add-hook 'prog-mode-hook
-            (lambda () (origami-mode))))
-
-
-;; Projectile
-(when (package-installed-p 'projectile)
-  (require 'projectile)
-  (projectile-global-mode)
-
-  (when (package-installed-p 'helm-projectile)
-    (require 'helm-projectile)
-    (setq projectile-completion-system 'helm)))
-
-;; Flyspell
-(when (package-installed-p 'flyspell)
-  (require 'flyspell)
-  ;; Enable flyspell on modes where it is most useful (but not all)
-  (add-hook 'text-mode-hook 'flyspell-mode))
 
 (setq gnus-select-method
       '(nnimap "megumi.breakerofthings.email"))

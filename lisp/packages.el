@@ -1,3 +1,15 @@
+;;;; packages -- Sets configuration options for external packages
+;;; -*- lexical-binding: t -*-
+;;
+;;
+;;; Commentary:
+;;
+;; Configures packages sourced from external elisp repositories,
+;; defines which packages should always be installed, additional packages
+;; can be installed manually...
+;;
+;;; Code:
+
 
 (require 'package)
 (defvar package-list
@@ -17,6 +29,7 @@
     yasnippet
 
     ;; Rainbow Delimiters - Colour-codes levels of delimiters
+    ;; Unbelivably necessary for LISP.
     rainbow-delimiters
 
     ;; Magit (Git Integration)
@@ -28,17 +41,22 @@
     ;; Code completions
     company
 
+    ;; Origami - Code folding
+    origami
+
+    ;; TypeScript development
+    tide
+
     ;; Code checking (on-the-fly)
     flycheck
+
+    ;; LISP Superpowers
+    slime
+    slime-company
     )
 )
 
-;; Add Package Archives (MELPA and Marmalade)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-;; Marmalade:: The best ELPA host.
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 (package-initialize)
 
@@ -50,15 +68,22 @@
   (when (not (package-installed-p package))
     (package-install package)))
 
+;; Company Mode
+(when (package-installed-p 'company)
+  (use-package company
+    :config (setq company-idle-delay 0.2
+                  company-tooltip-align-annotations t
+                  company-minimum-prefix-length 1
+                  company-format-margin-function 'company-vscode-dark-icons-margin))
+  (add-hook 'after-init-hook 'global-company-mode))
 
 ;; Load SLIME if SBCL and SLIME are installed.
-;; Slime is /not/ installed via package.el
-(let ((slime-dir (expand-file-name "packages/slime" user-emacs-directory)))
-  (when (file-exists-p slime-dir)
-    (add-to-list 'load-path slime-dir)
-    (require 'slime-autoloads)
-    (setq inferior-lisp-program "sbcl")
-    (message "Loaded SLIME for SBCL")))
+(when (package-installed-p 'slime)
+  (use-package slime
+    :config (setf inferior-lisp-program "sbcl"))
+  (when (package-installed-p  'slime-company)
+    (slime-setup '(slime-fancy slime-company))))
+
 
 (let ((moe-dir (expand-file-name "packages/moe-theme" user-emacs-directory)))
   (when (file-exists-p moe-dir)
@@ -72,21 +97,9 @@
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
   (defvar haskell-font-lock-symbols t))
 
-(when (package-installed-p 'coffee-mode)
-  (defvar coffee-tab-width 2))
-
 (when (package-installed-p 'rainbow-delimiters)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
-
-
-
-;; Company Mode
-(when (package-installed-p 'company)
-  (require 'company)
-  (setq company-idle-delay 0)
-  (setq company-tooltip-align-annotations t)
-  (add-hook 'after-init-hook 'global-company-mode))
 
 (when (package-installed-p 'tide)
   (add-hook 'typescript-mode-hook (lambda ()
@@ -154,9 +167,53 @@
                             (when (package-installed-p 'company-go)
                               (message "Setting company backend to company-go")
                               (set (make-local-variable 'company-backends) '(company-go))))))
-  
+
+
+
+;; Enable YARD mode if installed, for ruby mode.
+(when (package-installed-p 'yard-mode)
+  (add-hook 'ruby-mode-hook 'yard-mode))
+
+;; If magit is installed, then set up a new short cut for it
+(when (package-installed-p 'magit)
+  (global-set-key (kbd "C-c g") 'magit-status)
+  (defvar magit-last-seen-setup-instructions "1.4.0"))
+
+;; Projectile
+(when (package-installed-p 'projectile)
+  (require 'projectile)
+  (projectile-global-mode)
+
+  (when (package-installed-p 'helm-projectile)
+    (require 'helm-projectile)
+    (setq projectile-completion-system 'helm)))
+
+;; Flyspell
+(when (package-installed-p 'flyspell)
+  (require 'flyspell)
+  ;; Enable flyspell on modes where it is most useful (but not all)
+  (add-hook 'text-mode-hook 'flyspell-mode))
+
+(when (package-installed-p 'origami)
+  (require 'origami)
+
+  ;; Set the key bindings
+  (global-set-key (kbd "C-c f f") 'origami-toggle-node)
+  (global-set-key (kbd "C-c f F") 'origami-recursively-toggle-node)
+  (global-set-key (kbd "C-c f a") 'origami-toggle-all-nodes)
+
+  ;; Set some modes
+  (add-to-list 'origami-parser-alist '(go-mode . origami-c-style-parser))
+  (add-to-list 'origami-parser-alist '(php-mode . origami-c-style-parser))
+
+  ;; Hook it up to my modes
+  (add-hook 'prog-mode-hook
+            (lambda () (origami-mode))))
+
 ;; A little notification goes a long way!
 (message "Loaded Packages & Settings")
 
 (provide 'packages)
 ;;; packages.el ends here
+
+
