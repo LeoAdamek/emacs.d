@@ -62,7 +62,7 @@
 (setq make-backup-files nil)
 
 ;; Put the bookmarks in ~/.emacs.d/bookmarks
-(setq boomark-default-file "~/.emacs.d/bookmarks")
+(setq boomark-default-file (expand-file-name "bookmarks" user-emacs-directory))
 
 ;; Answer Yes/No prompts with Y/N instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -89,7 +89,7 @@
 
 ;; Load YASnippet
 (when (package-installed-p 'yasnippet)
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (setq yas-snippet-dirs (list (expand-file-name "snippets" user-emacs-directory)))
   (global-set-key (kbd "C-c TAB") 'yas-insert-snippet)
   (yas-global-mode t))
 

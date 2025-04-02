@@ -7,18 +7,10 @@
 
 ;;; Code:
 ;; Set which files are needed to be loaded.
-;; Put the file where "customize-*" options are put.
+;; Put the file where "customize-*" options are put
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
-(setq custom-file
-      (expand-file-name "~/.emacs.d/custom.el"))
-
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (message "Loading Packages")
 (require 'packages)
@@ -29,12 +21,12 @@
 (message "Loading Functions")
 (require 'functions)
 
-(defvar host-options-file (concat (expand-file-name "~/.emacs.d/lisp/") (system-name) ".el"))
-(when (file-exists-p host-options-file)
-  (load host-options-file)
-  (message (concat "Loaded options for " (system-name))))
+;(defvar host-options-file (concat (expand-file-name "lisp/") (system-name) ".el"))
+;(when (file-exists-p host-options-file)p
+;  (load host-options-file)
+;  (message (concat "Loaded options for " (system-name))))
 
 (provide 'init)
 
 ;;; init.el ends here
-(put 'upcase-region 'disabled nil)
+

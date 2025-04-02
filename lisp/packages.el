@@ -1,3 +1,4 @@
+
 (require 'package)
 (defvar package-list
   ;; These packages will be required and installed automatically.
@@ -21,30 +22,19 @@
     ;; Magit (Git Integration)
     magit
 
-    ;; Tide (TypeScript)
-    tide
-
-    ;; Origami (code folding)
-    origami
-
     ;; Projectile
     projectile
-    helm-projectile
 
-    ;; RESTClient interacts with HTTP from Emacs buffers
-    restclient
-    restclient-helm
-    company-restclient
-    
+    ;; Code completions
+    company
+
+    ;; Code checking (on-the-fly)
+    flycheck
     )
 )
 
 ;; Add Package Archives (MELPA and Marmalade)
-
-;; Yes, I know MELPA is unpopular but whatever.
-;; I may remove it in the future. Be warned!
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 ;; Marmalade:: The best ELPA host.
 (add-to-list 'package-archives
@@ -63,15 +53,17 @@
 
 ;; Load SLIME if SBCL and SLIME are installed.
 ;; Slime is /not/ installed via package.el
-(when (file-exists-p "~/.emacs.d/packages/slime/slime.el")
-      (add-to-list 'load-path "~/.emacs.d/packages/slime")
-      (require 'slime-autoloads)
-      (setq inferior-lisp-program "sbcl")
-      (message "Loaded SLIME for SBCL"))
+(let ((slime-dir (expand-file-name "packages/slime" user-emacs-directory)))
+  (when (file-exists-p slime-dir)
+    (add-to-list 'load-path slime-dir)
+    (require 'slime-autoloads)
+    (setq inferior-lisp-program "sbcl")
+    (message "Loaded SLIME for SBCL")))
 
-(when (file-exists-p "~/.emacs.d/packages/moe-theme/moe-theme.el")
-  (add-to-list 'load-path "~/.emacs.d/packages/moe-theme")
-  (require 'my-moe))
+(let ((moe-dir (expand-file-name "packages/moe-theme" user-emacs-directory)))
+  (when (file-exists-p moe-dir)
+    (add-to-list 'load-path moe-dir)
+    (require 'my-moe)))
 
 (when (package-installed-p 'haskell-mode)
   (require 'haskell-interactive-mode)
