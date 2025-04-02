@@ -8,8 +8,6 @@ This repository contains my emacs configuration.
 I decided to craft my own configuration from scratch for simplicity and stability.
 Read this to understand how it works.
 
-Some things aren't perfect, but I'm still somewhat new to elsip :wink:
-
 
 STRUCTURE
 ---------
@@ -51,8 +49,7 @@ PACKAGES
 The file *packages.el* defines a list of default packages called *package-list*
 By default these packages will all be installed. The following repositories are also added.
 
-* MELPA (I know this isn't a popular choice, and I will look at using git submodules in place of MELPA)
-* Marmalade Repo
+* MELPA 
 * ELPA (the default repo)
 
 ### Really Useful™ Packages Included
@@ -60,11 +57,9 @@ By default these packages will all be installed. The following repositories are 
 The following packages are included by default which are really useful:
 
 * `magit` -- Magical Git integration
-* `yasnippet` -- Powerful snippet system + custom snippets
-* `origami` -- Powerful, flexible code folding
+* `yasnippet` -- Snippet system + custom snippets
+* `origami` -- Flexible code folding
 * `moe-theme` -- Excellent theme, so kawaii~
-* `nxml-mode` -- Powerful XML editing tools.
-* `projectile` -- Powerfile project handling for emacs
+* `nxml-mode` -- XML editing tools.
+* `projectile` -- Project handling for emacs
 * `company` -- Great auto completion for emacs.
-
-I'm aware half of those started with "Powerful", but you find a better way to describe them!
