@@ -21,6 +21,8 @@
 (message "Loading Functions")
 (require 'functions)
 
+(require 'my-moe)
+
 ;(defvar host-options-file (concat (expand-file-name "lisp/") (system-name) ".el"))
 ;(when (file-exists-p host-options-file)p
 ;  (load host-options-file)

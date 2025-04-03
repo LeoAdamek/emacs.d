@@ -53,6 +53,7 @@
     ;; LISP Superpowers
     slime
     slime-company
+
     )
 )
 
@@ -83,12 +84,6 @@
     :config (setf inferior-lisp-program "sbcl"))
   (when (package-installed-p  'slime-company)
     (slime-setup '(slime-fancy slime-company))))
-
-
-(let ((moe-dir (expand-file-name "packages/moe-theme" user-emacs-directory)))
-  (when (file-exists-p moe-dir)
-    (add-to-list 'load-path moe-dir)
-    (require 'my-moe)))
 
 (when (package-installed-p 'haskell-mode)
   (require 'haskell-interactive-mode)
@@ -194,7 +189,7 @@
   ;; Enable flyspell on modes where it is most useful (but not all)
   (add-hook 'text-mode-hook 'flyspell-mode))
 
-(when (package-installed-p 'origami)
+(when (and (package-installed-p 'origami) nil)
   (require 'origami)
 
   ;; Set the key bindings
@@ -209,6 +204,10 @@
   ;; Hook it up to my modes
   (add-hook 'prog-mode-hook
             (lambda () (origami-mode))))
+
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
 
 ;; A little notification goes a long way!
 (message "Loaded Packages & Settings")
