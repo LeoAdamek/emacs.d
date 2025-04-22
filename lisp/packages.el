@@ -1,5 +1,4 @@
-;;;; packages -- Sets configuration options for external packages
-;;; -*- lexical-binding: t -*-
+;;; packages -- Sets configuration options for external packages  -*- lexical-binding: t -*-
 ;;
 ;;
 ;;; Commentary:
@@ -208,6 +207,10 @@
 (use-package doom-modeline
   :ensure t
   :hook (after-init . doom-modeline-mode))
+
+(use-package mmm-mode
+  :ensure t
+  :config (require 'mmm))
 
 ;; A little notification goes a long way!
 (message "Loaded Packages & Settings")

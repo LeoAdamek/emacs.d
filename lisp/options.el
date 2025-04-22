@@ -37,7 +37,7 @@
 
 (add-hook 'after-make-frame-functions '*configure-frame t)
 
-(defvar my-frame-options-alist '((font . "Iosevka")))
+(defvar my-frame-options-alist '((font . "Iosevka Nerd Font")))
 (setq default-frame-alist (append my-frame-options-alist default-frame-alist))
 (setq initial-frame-alist (append my-frame-options-alist initial-frame-alist))
 
